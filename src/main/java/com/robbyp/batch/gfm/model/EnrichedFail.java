@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -26,4 +23,7 @@ public class EnrichedFail {
     @Getter @Setter private BigDecimal consideration;
     @Getter @Setter private String counterparty;
     @Getter @Setter private BigDecimal failCost;
+//    @Getter @Setter @OneToOne private Fail fail;
+    @Getter @Setter private String status;
+
 }

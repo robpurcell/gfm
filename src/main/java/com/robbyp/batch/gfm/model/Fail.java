@@ -22,4 +22,14 @@ public class Fail {
     @Getter @Setter private String intrumentId;
     @Getter @Setter private BigDecimal consideration;
     @Getter @Setter private String counterparty;
+
+    public static Fail createFail(int id) {
+        Fail f = new Fail();
+        f.setTradeDate(LocalDate.now());
+        f.setIntendedSettlementDate(LocalDate.now().plusDays(3));
+        f.setCounterparty("Counterparty" + id);
+        f.setConsideration(BigDecimal.valueOf(Math.random()).multiply(new BigDecimal(1000)));
+        return f;
+    }
+
 }

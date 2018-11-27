@@ -12,10 +12,11 @@ import java.math.BigDecimal;
 public class FailProcessor implements ItemProcessor<Fail, EnrichedFail> {
 
     @Override
-    public EnrichedFail process(final Fail fail) throws InterruptedException {
+    public EnrichedFail process(Fail fail) throws InterruptedException {
         final EnrichedFail enrichedFail = new EnrichedFail();
         BeanUtils.copyProperties(fail, enrichedFail);
         enrichedFail.setFailCost(fail.getConsideration().multiply(new BigDecimal(0.1)));
+        enrichedFail.setFail(fail);
 
         // Time consuming task
         //Thread.sleep(100);

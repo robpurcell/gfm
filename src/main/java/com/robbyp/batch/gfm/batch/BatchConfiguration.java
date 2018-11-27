@@ -38,7 +38,7 @@ public class BatchConfiguration {
         return new JpaPagingItemReaderBuilder<Fail>()
                 .name("failItemReader")
                 .entityManagerFactory(entityManagerFactory)
-                .queryString("select f from Fail f")
+                .queryString("select f from Fail f left join f.fail")
                 .pageSize(200)
                 .build();
     }
